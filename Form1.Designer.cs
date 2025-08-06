@@ -35,17 +35,25 @@
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            saveFileDialog1 = new SaveFileDialog();
-            richTextBox1 = new RichTextBox();
+            formatToolStripMenuItem = new ToolStripMenuItem();
+            textToolStripMenuItem = new ToolStripMenuItem();
+            boldToolStripMenuItem = new ToolStripMenuItem();
+            italicsToolStripMenuItem = new ToolStripMenuItem();
+            underlineToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             aboutShenEssayToolStripMenuItem = new ToolStripMenuItem();
             aboutShenToolStripMenuItem = new ToolStripMenuItem();
+            saveFileDialog1 = new SaveFileDialog();
+            richTextBox1 = new RichTextBox();
+            fontToolStripMenuItem = new ToolStripMenuItem();
+            fontTypeToolStripMenuItem = new ToolStripMenuItem();
+            colorPalleteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, formatToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 25);
@@ -63,47 +71,74 @@
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(180, 22);
+            newToolStripMenuItem.Size = new Size(120, 22);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Size = new Size(120, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Size = new Size(120, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(180, 22);
+            saveAsToolStripMenuItem.Size = new Size(120, 22);
             saveAsToolStripMenuItem.Text = "Save As";
             saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(120, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-            // richTextBox1
+            // formatToolStripMenuItem
             // 
-            richTextBox1.Dock = DockStyle.Fill;
-            richTextBox1.Font = new Font("Segoe UI", 14F);
-            richTextBox1.Location = new Point(0, 25);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(800, 425);
-            richTextBox1.TabIndex = 1;
-            richTextBox1.Text = "";
+            formatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { textToolStripMenuItem });
+            formatToolStripMenuItem.Name = "formatToolStripMenuItem";
+            formatToolStripMenuItem.Size = new Size(59, 21);
+            formatToolStripMenuItem.Text = "Format";
+            formatToolStripMenuItem.Click += formatToolStripMenuItem_Click;
+            // 
+            // textToolStripMenuItem
+            // 
+            textToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boldToolStripMenuItem, italicsToolStripMenuItem, underlineToolStripMenuItem, fontToolStripMenuItem });
+            textToolStripMenuItem.Name = "textToolStripMenuItem";
+            textToolStripMenuItem.Size = new Size(180, 22);
+            textToolStripMenuItem.Text = "Text";
+            textToolStripMenuItem.Click += textToolStripMenuItem_Click;
+            // 
+            // boldToolStripMenuItem
+            // 
+            boldToolStripMenuItem.Name = "boldToolStripMenuItem";
+            boldToolStripMenuItem.Size = new Size(180, 22);
+            boldToolStripMenuItem.Text = "Bold";
+            boldToolStripMenuItem.Click += boldToolStripMenuItem_Click;
+            // 
+            // italicsToolStripMenuItem
+            // 
+            italicsToolStripMenuItem.Name = "italicsToolStripMenuItem";
+            italicsToolStripMenuItem.Size = new Size(180, 22);
+            italicsToolStripMenuItem.Text = "Italics";
+            italicsToolStripMenuItem.Click += italicsToolStripMenuItem_Click;
+            // 
+            // underlineToolStripMenuItem
+            // 
+            underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
+            underlineToolStripMenuItem.Size = new Size(180, 22);
+            underlineToolStripMenuItem.Text = "Underline";
+            underlineToolStripMenuItem.Click += underlineToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
@@ -116,16 +151,48 @@
             // aboutShenEssayToolStripMenuItem
             // 
             aboutShenEssayToolStripMenuItem.Name = "aboutShenEssayToolStripMenuItem";
-            aboutShenEssayToolStripMenuItem.Size = new Size(180, 22);
+            aboutShenEssayToolStripMenuItem.Size = new Size(177, 22);
             aboutShenEssayToolStripMenuItem.Text = "About She!n Essay";
             aboutShenEssayToolStripMenuItem.Click += aboutShenEssayToolStripMenuItem_Click;
             // 
             // aboutShenToolStripMenuItem
             // 
             aboutShenToolStripMenuItem.Name = "aboutShenToolStripMenuItem";
-            aboutShenToolStripMenuItem.Size = new Size(180, 22);
+            aboutShenToolStripMenuItem.Size = new Size(177, 22);
             aboutShenToolStripMenuItem.Text = "About She!n";
             aboutShenToolStripMenuItem.Click += aboutShenToolStripMenuItem_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Dock = DockStyle.Fill;
+            richTextBox1.Font = new Font("Segoe UI", 14F);
+            richTextBox1.Location = new Point(0, 25);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(800, 425);
+            richTextBox1.TabIndex = 1;
+            richTextBox1.Text = "";
+            // 
+            // fontToolStripMenuItem
+            // 
+            fontToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontTypeToolStripMenuItem, colorPalleteToolStripMenuItem });
+            fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            fontToolStripMenuItem.Size = new Size(180, 22);
+            fontToolStripMenuItem.Text = "Font";
+            fontToolStripMenuItem.Click += fontToolStripMenuItem_Click;
+            // 
+            // fontTypeToolStripMenuItem
+            // 
+            fontTypeToolStripMenuItem.Name = "fontTypeToolStripMenuItem";
+            fontTypeToolStripMenuItem.Size = new Size(180, 22);
+            fontTypeToolStripMenuItem.Text = "Font Type";
+            fontTypeToolStripMenuItem.Click += fontTypeToolStripMenuItem_Click;
+            // 
+            // colorPalleteToolStripMenuItem
+            // 
+            colorPalleteToolStripMenuItem.Name = "colorPalleteToolStripMenuItem";
+            colorPalleteToolStripMenuItem.Size = new Size(180, 22);
+            colorPalleteToolStripMenuItem.Text = "Color Pallete";
+            colorPalleteToolStripMenuItem.Click += colorPalleteToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -157,5 +224,13 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem aboutShenEssayToolStripMenuItem;
         private ToolStripMenuItem aboutShenToolStripMenuItem;
+        private ToolStripMenuItem formatToolStripMenuItem;
+        private ToolStripMenuItem textToolStripMenuItem;
+        private ToolStripMenuItem boldToolStripMenuItem;
+        private ToolStripMenuItem italicsToolStripMenuItem;
+        private ToolStripMenuItem underlineToolStripMenuItem;
+        private ToolStripMenuItem fontToolStripMenuItem;
+        private ToolStripMenuItem fontTypeToolStripMenuItem;
+        private ToolStripMenuItem colorPalleteToolStripMenuItem;
     }
 }
