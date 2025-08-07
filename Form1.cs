@@ -1,11 +1,11 @@
-// Hi!
+// Hi! This is the backbone of She!n Essay.
 using System.Windows.Forms;
 
 namespace She_nEssay
 {
     public partial class Form1 : Form
     {
-   
+
         private FontDialog fontDialog1 = new FontDialog();
         private ColorDialog colorDialog1 = new ColorDialog();
         public Form1()
@@ -42,7 +42,7 @@ namespace She_nEssay
             {
                 Filter = "She!n Essay Files (*.she!ss)|*.she!ss|All Files (*.*)|*.*",
                 Title = "Save She!n Essay File"
-            };  
+            };
 
             // Whatever is written in the textbox is saved as well
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -85,17 +85,18 @@ namespace She_nEssay
             // Leave it blank. For now...
         }
 
-        private void textToolStripMenuItem_Click(object sender, EventArgs e)
+        private void textToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Leave it blank. For now...
         }
 
-        private void formatToolStripMenuItem_Click(object sender, EventArgs e)
+        private void formatToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Leave it blank. For now...
         }
 
-        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void boldToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Bolds out selected text in richTextBox1
 
@@ -105,7 +106,7 @@ namespace She_nEssay
 
         }
 
-        private void italicsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void italicsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Italisizes selected text in richTextBox1
 
@@ -115,22 +116,21 @@ namespace She_nEssay
 
         }
 
-        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        private void underlineToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Underlines selected text in richTextBox1
 
             Font SelectedText_Font = richTextBox1.SelectionFont;
             if (SelectedText_Font != null)
                 richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Underline);
-
         }
 
-        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fontToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Leave it blank. For now...
         }
 
-        private void fontTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fontTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Stolen from MS documentation. Probably works.
             if (fontDialog1.ShowDialog() == DialogResult.OK)
@@ -146,7 +146,7 @@ namespace She_nEssay
             }
         }
 
-        private void colorPalleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void colorPalleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Same fate...
             if (colorDialog1.ShowDialog() == DialogResult.OK)
