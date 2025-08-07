@@ -4,6 +4,9 @@ namespace She_nEssay
 {
     public partial class Form1 : Form
     {
+   
+        private FontDialog fontDialog1 = new FontDialog();
+        private ColorDialog colorDialog1 = new ColorDialog();
         public Form1()
         {
             InitializeComponent();
@@ -65,7 +68,8 @@ namespace She_nEssay
 
         private void aboutShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("She!n Essay \n" + "Version 1.0.0 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay");
+            // About She!n Essay
+            MessageBox.Show("She!n Essay \n" + "Version 1.0.0 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void aboutShenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,7 +80,72 @@ namespace She_nEssay
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            // Leave it blank. For now...
+        }
+
+        private void textToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void formatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Bolds out selected text in richTextBox1
+
+            // For another time..
+            MessageBox.Show("This feature is not implemented yet. Check back later", "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+        }
+
+        private void italicsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Italisizes selected text in richTextBox1
+
+            // For another time..
+            MessageBox.Show("This feature is not implemented yet. Check back later", "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Underlines selected text in richTextBox1
+
+            // For another time..
+            MessageBox.Show("This feature is not implemented yet. Check back later", "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void fontTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Stolen from MS documentation. Probably works.
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.Font = fontDialog1.Font;
+            }
+        }
+
+        private void colorPalleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Same fate...
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                colorPalleteToolStripMenuItem.BackColor = colorDialog1.Color;
+            }
+
+            // Change color of selected text to selected color
+            // For another time...
         }
     }
 }
