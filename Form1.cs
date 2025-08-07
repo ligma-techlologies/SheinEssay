@@ -5,7 +5,7 @@ namespace She_nEssay
 {
     public partial class Form1 : Form
     {
-   
+
         private FontDialog fontDialog1 = new FontDialog();
         private ColorDialog colorDialog1 = new ColorDialog();
         public Form1()
@@ -42,7 +42,7 @@ namespace She_nEssay
             {
                 Filter = "She!n Essay Files (*.she!ss)|*.she!ss|All Files (*.*)|*.*",
                 Title = "Save She!n Essay File"
-            };  
+            };
 
             // Whatever is written in the textbox is saved as well
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -161,5 +161,11 @@ namespace She_nEssay
                 richTextBox1.SelectionColor = colorDialog1.Color;
             }
         }
+
+        private void formattingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Midlife crisis...
+        }
+
     }
 }
