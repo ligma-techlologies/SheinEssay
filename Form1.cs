@@ -71,7 +71,7 @@ namespace She_nEssay
         private void aboutShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // About She!n Essay
-            MessageBox.Show("She!n Essay \n" + "Version 1.0.0 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("She!n Essay \n" + "Version 1.0.2 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void aboutShenToolStripMenuItem_Click(object sender, EventArgs e)
