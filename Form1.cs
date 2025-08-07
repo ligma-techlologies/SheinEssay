@@ -1,4 +1,4 @@
-// Hi!
+// Hi! This is the backbone of She!n Essay.
 using System.Windows.Forms;
 
 namespace She_nEssay

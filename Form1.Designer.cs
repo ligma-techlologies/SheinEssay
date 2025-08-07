@@ -1,4 +1,5 @@
-﻿namespace She_nEssay
+﻿// Hi! This is what beautifies She!n Essay.
+namespace She_nEssay
 {
     partial class Form1
     {
