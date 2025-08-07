@@ -1,5 +1,4 @@
-﻿// Hi! This is what beautifies She!n Essay.
-namespace She_nEssay
+﻿namespace She_nEssay
 {
     partial class Form1
     {
@@ -36,17 +35,6 @@ namespace She_nEssay
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
-            aboutShenEssayToolStripMenuItem = new ToolStripMenuItem();
-            aboutShenToolStripMenuItem = new ToolStripMenuItem();
-            formatToolStripMenuItem1 = new ToolStripMenuItem();
-            textToolStripMenuItem1 = new ToolStripMenuItem();
-            boldToolStripMenuItem1 = new ToolStripMenuItem();
-            italicsToolStripMenuItem1 = new ToolStripMenuItem();
-            underlineToolStripMenuItem1 = new ToolStripMenuItem();
-            fontToolStripMenuItem1 = new ToolStripMenuItem();
-            fontTToolStripMenuItem = new ToolStripMenuItem();
-            colorPalleteToolStripMenuItem1 = new ToolStripMenuItem();
             formatToolStripMenuItem = new ToolStripMenuItem();
             textToolStripMenuItem = new ToolStripMenuItem();
             boldToolStripMenuItem = new ToolStripMenuItem();
@@ -55,14 +43,20 @@ namespace She_nEssay
             fontToolStripMenuItem = new ToolStripMenuItem();
             fontTypeToolStripMenuItem = new ToolStripMenuItem();
             colorPalleteToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            aboutShenEssayToolStripMenuItem = new ToolStripMenuItem();
+            aboutShenToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             richTextBox1 = new RichTextBox();
+            fontToolStripMenuItem = new ToolStripMenuItem();
+            fontTypeToolStripMenuItem = new ToolStripMenuItem();
+            colorPalleteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, formatToolStripMenuItem1, aboutToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 25);
@@ -80,37 +74,74 @@ namespace She_nEssay
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(120, 22);
+            newToolStripMenuItem.Size = new Size(180, 22);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(120, 22);
+            openToolStripMenuItem.Size = new Size(180, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(120, 22);
+            saveToolStripMenuItem.Size = new Size(180, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(120, 22);
+            saveAsToolStripMenuItem.Size = new Size(180, 22);
             saveAsToolStripMenuItem.Text = "Save As";
             saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(120, 22);
+            exitToolStripMenuItem.Size = new Size(180, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // richTextBox1
+            // 
+            formatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { textToolStripMenuItem });
+            formatToolStripMenuItem.Name = "formatToolStripMenuItem";
+            formatToolStripMenuItem.Size = new Size(59, 21);
+            formatToolStripMenuItem.Text = "Format";
+            formatToolStripMenuItem.Click += formatToolStripMenuItem_Click;
+            // 
+            // textToolStripMenuItem
+            // 
+            textToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boldToolStripMenuItem, italicsToolStripMenuItem, underlineToolStripMenuItem, fontToolStripMenuItem });
+            textToolStripMenuItem.Name = "textToolStripMenuItem";
+            textToolStripMenuItem.Size = new Size(180, 22);
+            textToolStripMenuItem.Text = "Text";
+            textToolStripMenuItem.Click += textToolStripMenuItem_Click;
+            // 
+            // boldToolStripMenuItem
+            // 
+            boldToolStripMenuItem.Name = "boldToolStripMenuItem";
+            boldToolStripMenuItem.Size = new Size(180, 22);
+            boldToolStripMenuItem.Text = "Bold";
+            boldToolStripMenuItem.Click += boldToolStripMenuItem_Click;
+            // 
+            // italicsToolStripMenuItem
+            // 
+            italicsToolStripMenuItem.Name = "italicsToolStripMenuItem";
+            italicsToolStripMenuItem.Size = new Size(180, 22);
+            italicsToolStripMenuItem.Text = "Italics";
+            italicsToolStripMenuItem.Click += italicsToolStripMenuItem_Click;
+            // 
+            // underlineToolStripMenuItem
+            // 
+            underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
+            underlineToolStripMenuItem.Size = new Size(180, 22);
+            underlineToolStripMenuItem.Text = "Underline";
+            underlineToolStripMenuItem.Click += underlineToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
@@ -123,114 +154,16 @@ namespace She_nEssay
             // aboutShenEssayToolStripMenuItem
             // 
             aboutShenEssayToolStripMenuItem.Name = "aboutShenEssayToolStripMenuItem";
-            aboutShenEssayToolStripMenuItem.Size = new Size(177, 22);
+            aboutShenEssayToolStripMenuItem.Size = new Size(180, 22);
             aboutShenEssayToolStripMenuItem.Text = "About She!n Essay";
             aboutShenEssayToolStripMenuItem.Click += aboutShenEssayToolStripMenuItem_Click;
             // 
             // aboutShenToolStripMenuItem
             // 
             aboutShenToolStripMenuItem.Name = "aboutShenToolStripMenuItem";
-            aboutShenToolStripMenuItem.Size = new Size(177, 22);
+            aboutShenToolStripMenuItem.Size = new Size(180, 22);
             aboutShenToolStripMenuItem.Text = "About She!n";
             aboutShenToolStripMenuItem.Click += aboutShenToolStripMenuItem_Click;
-            // 
-            // formatToolStripMenuItem1
-            // 
-            formatToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { textToolStripMenuItem1 });
-            formatToolStripMenuItem1.Name = "formatToolStripMenuItem1";
-            formatToolStripMenuItem1.Size = new Size(59, 21);
-            formatToolStripMenuItem1.Text = "Format";
-            // 
-            // textToolStripMenuItem1
-            // 
-            textToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { boldToolStripMenuItem1, italicsToolStripMenuItem1, underlineToolStripMenuItem1, fontToolStripMenuItem1 });
-            textToolStripMenuItem1.Name = "textToolStripMenuItem1";
-            textToolStripMenuItem1.Size = new Size(180, 22);
-            textToolStripMenuItem1.Text = "Text";
-            textToolStripMenuItem1.Click += textToolStripMenuItem1_Click;
-            // 
-            // boldToolStripMenuItem1
-            // 
-            boldToolStripMenuItem1.Name = "boldToolStripMenuItem1";
-            boldToolStripMenuItem1.Size = new Size(180, 22);
-            boldToolStripMenuItem1.Text = "Bold";
-            boldToolStripMenuItem1.Click += boldToolStripMenuItem1_Click;
-            // 
-            // italicsToolStripMenuItem1
-            // 
-            italicsToolStripMenuItem1.Name = "italicsToolStripMenuItem1";
-            italicsToolStripMenuItem1.Size = new Size(180, 22);
-            italicsToolStripMenuItem1.Text = "Italics";
-            italicsToolStripMenuItem1.Click += italicsToolStripMenuItem1_Click;
-            // 
-            // underlineToolStripMenuItem1
-            // 
-            underlineToolStripMenuItem1.Name = "underlineToolStripMenuItem1";
-            underlineToolStripMenuItem1.Size = new Size(180, 22);
-            underlineToolStripMenuItem1.Text = "Underline";
-            underlineToolStripMenuItem1.Click += underlineToolStripMenuItem1_Click;
-            // 
-            // fontToolStripMenuItem1
-            // 
-            fontToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { fontTToolStripMenuItem, colorPalleteToolStripMenuItem1 });
-            fontToolStripMenuItem1.Name = "fontToolStripMenuItem1";
-            fontToolStripMenuItem1.Size = new Size(180, 22);
-            fontToolStripMenuItem1.Text = "Font";
-            fontToolStripMenuItem1.Click += fontToolStripMenuItem1_Click;
-            // 
-            // fontTToolStripMenuItem
-            // 
-            fontTToolStripMenuItem.Name = "fontTToolStripMenuItem";
-            fontTToolStripMenuItem.Size = new Size(180, 22);
-            fontTToolStripMenuItem.Text = "Font Type";
-            fontTToolStripMenuItem.Click += fontTToolStripMenuItem_Click;
-            // 
-            // colorPalleteToolStripMenuItem1
-            // 
-            colorPalleteToolStripMenuItem1.Name = "colorPalleteToolStripMenuItem1";
-            colorPalleteToolStripMenuItem1.Size = new Size(180, 22);
-            colorPalleteToolStripMenuItem1.Text = "Color Pallete";
-            colorPalleteToolStripMenuItem1.Click += colorPalleteToolStripMenuItem1_Click;
-            // 
-            // formatToolStripMenuItem
-            // 
-            formatToolStripMenuItem.Name = "formatToolStripMenuItem";
-            formatToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // textToolStripMenuItem
-            // 
-            textToolStripMenuItem.Name = "textToolStripMenuItem";
-            textToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // boldToolStripMenuItem
-            // 
-            boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            boldToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // italicsToolStripMenuItem
-            // 
-            italicsToolStripMenuItem.Name = "italicsToolStripMenuItem";
-            italicsToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // underlineToolStripMenuItem
-            // 
-            underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
-            underlineToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // fontToolStripMenuItem
-            // 
-            fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            fontToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // fontTypeToolStripMenuItem
-            // 
-            fontTypeToolStripMenuItem.Name = "fontTypeToolStripMenuItem";
-            fontTypeToolStripMenuItem.Size = new Size(32, 19);
-            // 
-            // colorPalleteToolStripMenuItem
-            // 
-            colorPalleteToolStripMenuItem.Name = "colorPalleteToolStripMenuItem";
-            colorPalleteToolStripMenuItem.Size = new Size(32, 19);
             // 
             // richTextBox1
             // 
@@ -241,6 +174,28 @@ namespace She_nEssay
             richTextBox1.Size = new Size(800, 425);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
+            // 
+            // fontToolStripMenuItem
+            // 
+            fontToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontTypeToolStripMenuItem, colorPalleteToolStripMenuItem });
+            fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            fontToolStripMenuItem.Size = new Size(180, 22);
+            fontToolStripMenuItem.Text = "Font";
+            fontToolStripMenuItem.Click += fontToolStripMenuItem_Click;
+            // 
+            // fontTypeToolStripMenuItem
+            // 
+            fontTypeToolStripMenuItem.Name = "fontTypeToolStripMenuItem";
+            fontTypeToolStripMenuItem.Size = new Size(180, 22);
+            fontTypeToolStripMenuItem.Text = "Font Type";
+            fontTypeToolStripMenuItem.Click += fontTypeToolStripMenuItem_Click;
+            // 
+            // colorPalleteToolStripMenuItem
+            // 
+            colorPalleteToolStripMenuItem.Name = "colorPalleteToolStripMenuItem";
+            colorPalleteToolStripMenuItem.Size = new Size(180, 22);
+            colorPalleteToolStripMenuItem.Text = "Color Pallete";
+            colorPalleteToolStripMenuItem.Click += colorPalleteToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -280,13 +235,5 @@ namespace She_nEssay
         private ToolStripMenuItem fontToolStripMenuItem;
         private ToolStripMenuItem fontTypeToolStripMenuItem;
         private ToolStripMenuItem colorPalleteToolStripMenuItem;
-        private ToolStripMenuItem formatToolStripMenuItem1;
-        private ToolStripMenuItem textToolStripMenuItem1;
-        private ToolStripMenuItem boldToolStripMenuItem1;
-        private ToolStripMenuItem italicsToolStripMenuItem1;
-        private ToolStripMenuItem underlineToolStripMenuItem1;
-        private ToolStripMenuItem fontToolStripMenuItem1;
-        private ToolStripMenuItem fontTToolStripMenuItem;
-        private ToolStripMenuItem colorPalleteToolStripMenuItem1;
     }
 }
