@@ -14,6 +14,7 @@ namespace She_nEssay
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Clears RichTextBox
             richTextBox1.Clear();
         }
 
@@ -63,7 +64,7 @@ namespace She_nEssay
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Leave it blank. For now...
         }
 
         private void aboutShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,8 +98,9 @@ namespace She_nEssay
         {
             // Bolds out selected text in richTextBox1
 
-            // For another time..
-            MessageBox.Show("This feature is not implemented yet. Check back later", "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+                richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Bold);
 
 
 
@@ -108,8 +110,9 @@ namespace She_nEssay
         {
             // Italisizes selected text in richTextBox1
 
-            // For another time..
-            MessageBox.Show("This feature is not implemented yet. Check back later", "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+                richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Bold);
 
         }
 
@@ -117,8 +120,9 @@ namespace She_nEssay
         {
             // Underlines selected text in richTextBox1
 
-            // For another time..
-            MessageBox.Show("This feature is not implemented yet. Check back later", "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+                richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Underline);
 
         }
 
@@ -134,6 +138,13 @@ namespace She_nEssay
             {
                 richTextBox1.Font = fontDialog1.Font;
             }
+
+            // Change font of selected text to selected font
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+            {
+                richTextBox1.SelectionFont = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, SelectedText_Font.Style);
+            }
         }
 
         private void colorPalleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,7 +156,11 @@ namespace She_nEssay
             }
 
             // Change color of selected text to selected color
-            // For another time...
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+            {
+                richTextBox1.SelectionColor = colorDialog1.Color;
+            }
         }
     }
 }
