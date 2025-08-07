@@ -1,5 +1,4 @@
 # She!nEssay
-# She!nEssay
 The word processor of all time
 
 # Why She!nEssay?
@@ -10,7 +9,7 @@ She!nEssay is a word processor that is designed to be simple, fast, and efficien
 - **Fast and efficient**: Built with the latest web technologies, She!nEssay is optimized for performance and speed.
 - **Cross-platform compatibility**: Works on all major browsers and devices, ensuring you can write anywhere, anytime.
 
-<strong>Quick License Stuff</strong>>
+<strong>Quick License Stuff</strong>
 - The She!n Lisence is a proprietary license for every She!n product. View she!nlicense.txt for more information.
 
 <h2>APACHE LICENSE NOTICE</h2>
