@@ -1,0 +1,26 @@
+Update 1.0.3
+-----------------
+Bullet Points Support added
+Misc Fixes
+-------------------------------------------------------------
+Update 1.0.2
+-----------------
+Added Bold, Italicizing and Underlining of text
+Quality of life improvements of formatting tab
+Updated the About box
+-------------------------------------------------------------
+Update 1.0.1
+-----------------
+Allows for font changes and a color pallete!
+Framework for Text modification
+General changes and quality of life improvements
+Installer for quality of life improvements
+-------------------------------------------------------------
+Update 1.0.0
+-----------------
+FIRST RELEASE!
+
+Basic Text Editor
+Uses .she!ss file format
+Not much...
+-------------------------------------------------------------

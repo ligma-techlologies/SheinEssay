@@ -36,9 +36,6 @@ namespace She_nEssay
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
-            aboutShenEssayToolStripMenuItem = new ToolStripMenuItem();
-            aboutShenToolStripMenuItem = new ToolStripMenuItem();
             formatToolStripMenuItem1 = new ToolStripMenuItem();
             textToolStripMenuItem = new ToolStripMenuItem();
             boldToolStripMenuItem = new ToolStripMenuItem();
@@ -47,9 +44,14 @@ namespace She_nEssay
             fontToolStripMenuItem = new ToolStripMenuItem();
             fontTypeToolStripMenuItem = new ToolStripMenuItem();
             colorPalleteToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            aboutShenEssayToolStripMenuItem = new ToolStripMenuItem();
+            aboutShenToolStripMenuItem = new ToolStripMenuItem();
             formatToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             richTextBox1 = new RichTextBox();
+            pointsToolStripMenuItem = new ToolStripMenuItem();
+            bulletPointsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -105,31 +107,9 @@ namespace She_nEssay
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-            // aboutToolStripMenuItem
-            // 
-            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutShenEssayToolStripMenuItem, aboutShenToolStripMenuItem });
-            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(52, 21);
-            aboutToolStripMenuItem.Text = "About";
-            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
-            // 
-            // aboutShenEssayToolStripMenuItem
-            // 
-            aboutShenEssayToolStripMenuItem.Name = "aboutShenEssayToolStripMenuItem";
-            aboutShenEssayToolStripMenuItem.Size = new Size(180, 22);
-            aboutShenEssayToolStripMenuItem.Text = "About She!n Essay";
-            aboutShenEssayToolStripMenuItem.Click += aboutShenEssayToolStripMenuItem_Click;
-            // 
-            // aboutShenToolStripMenuItem
-            // 
-            aboutShenToolStripMenuItem.Name = "aboutShenToolStripMenuItem";
-            aboutShenToolStripMenuItem.Size = new Size(180, 22);
-            aboutShenToolStripMenuItem.Text = "About She!n";
-            aboutShenToolStripMenuItem.Click += aboutShenToolStripMenuItem_Click;
-            // 
             // formatToolStripMenuItem1
             // 
-            formatToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { textToolStripMenuItem });
+            formatToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { textToolStripMenuItem, pointsToolStripMenuItem });
             formatToolStripMenuItem1.Name = "formatToolStripMenuItem1";
             formatToolStripMenuItem1.Size = new Size(59, 21);
             formatToolStripMenuItem1.Text = "Format";
@@ -146,21 +126,21 @@ namespace She_nEssay
             // boldToolStripMenuItem
             // 
             boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            boldToolStripMenuItem.Size = new Size(129, 22);
+            boldToolStripMenuItem.Size = new Size(180, 22);
             boldToolStripMenuItem.Text = "Bold";
             boldToolStripMenuItem.Click += boldToolStripMenuItem_Click;
             // 
             // italicsToolStripMenuItem
             // 
             italicsToolStripMenuItem.Name = "italicsToolStripMenuItem";
-            italicsToolStripMenuItem.Size = new Size(129, 22);
+            italicsToolStripMenuItem.Size = new Size(180, 22);
             italicsToolStripMenuItem.Text = "Italics";
             italicsToolStripMenuItem.Click += italicsToolStripMenuItem_Click;
             // 
             // underlineToolStripMenuItem
             // 
             underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
-            underlineToolStripMenuItem.Size = new Size(129, 22);
+            underlineToolStripMenuItem.Size = new Size(180, 22);
             underlineToolStripMenuItem.Text = "Underline";
             underlineToolStripMenuItem.Click += underlineToolStripMenuItem_Click;
             // 
@@ -168,7 +148,7 @@ namespace She_nEssay
             // 
             fontToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontTypeToolStripMenuItem, colorPalleteToolStripMenuItem });
             fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            fontToolStripMenuItem.Size = new Size(129, 22);
+            fontToolStripMenuItem.Size = new Size(180, 22);
             fontToolStripMenuItem.Text = "Font";
             fontToolStripMenuItem.Click += fontToolStripMenuItem_Click;
             // 
@@ -186,6 +166,28 @@ namespace She_nEssay
             colorPalleteToolStripMenuItem.Text = "Color Pallete";
             colorPalleteToolStripMenuItem.Click += colorPalleteToolStripMenuItem_Click;
             // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutShenEssayToolStripMenuItem, aboutShenToolStripMenuItem });
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(52, 21);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            // 
+            // aboutShenEssayToolStripMenuItem
+            // 
+            aboutShenEssayToolStripMenuItem.Name = "aboutShenEssayToolStripMenuItem";
+            aboutShenEssayToolStripMenuItem.Size = new Size(177, 22);
+            aboutShenEssayToolStripMenuItem.Text = "About She!n Essay";
+            aboutShenEssayToolStripMenuItem.Click += aboutShenEssayToolStripMenuItem_Click;
+            // 
+            // aboutShenToolStripMenuItem
+            // 
+            aboutShenToolStripMenuItem.Name = "aboutShenToolStripMenuItem";
+            aboutShenToolStripMenuItem.Size = new Size(177, 22);
+            aboutShenToolStripMenuItem.Text = "About She!n";
+            aboutShenToolStripMenuItem.Click += aboutShenToolStripMenuItem_Click;
+            // 
             // formatToolStripMenuItem
             // 
             formatToolStripMenuItem.Name = "formatToolStripMenuItem";
@@ -197,9 +199,26 @@ namespace She_nEssay
             richTextBox1.Font = new Font("Segoe UI", 14F);
             richTextBox1.Location = new Point(0, 25);
             richTextBox1.Name = "richTextBox1";
+            richTextBox1.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
             richTextBox1.Size = new Size(800, 425);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
+            // 
+            // pointsToolStripMenuItem
+            // 
+            pointsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bulletPointsToolStripMenuItem });
+            pointsToolStripMenuItem.Name = "pointsToolStripMenuItem";
+            pointsToolStripMenuItem.Size = new Size(180, 22);
+            pointsToolStripMenuItem.Text = "Points";
+            pointsToolStripMenuItem.Click += pointsToolStripMenuItem_Click;
+            // 
+            // bulletPointsToolStripMenuItem
+            // 
+            bulletPointsToolStripMenuItem.Name = "bulletPointsToolStripMenuItem";
+            bulletPointsToolStripMenuItem.Size = new Size(180, 22);
+            bulletPointsToolStripMenuItem.Text = "Bullet Points";
+            bulletPointsToolStripMenuItem.Click += bulletPointsToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -240,5 +259,7 @@ namespace She_nEssay
         private ToolStripMenuItem fontTypeToolStripMenuItem;
         private ToolStripMenuItem colorPalleteToolStripMenuItem;
         private ToolStripMenuItem formatToolStripMenuItem1;
+        private ToolStripMenuItem pointsToolStripMenuItem;
+        private ToolStripMenuItem bulletPointsToolStripMenuItem;
     }
 }

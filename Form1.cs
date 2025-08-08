@@ -5,7 +5,7 @@ namespace She_nEssay
 {
     public partial class Form1 : Form
     {
-   
+
         private FontDialog fontDialog1 = new FontDialog();
         private ColorDialog colorDialog1 = new ColorDialog();
         public Form1()
@@ -42,7 +42,7 @@ namespace She_nEssay
             {
                 Filter = "She!n Essay Files (*.she!ss)|*.she!ss|All Files (*.*)|*.*",
                 Title = "Save She!n Essay File"
-            };  
+            };
 
             // Whatever is written in the textbox is saved as well
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -71,7 +71,7 @@ namespace She_nEssay
         private void aboutShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // About She!n Essay
-            MessageBox.Show("She!n Essay \n" + "Version 1.0.2 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("She!n Essay \n" + "Version 1.0.3 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void aboutShenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,6 +160,31 @@ namespace She_nEssay
             {
                 richTextBox1.SelectionColor = colorDialog1.Color;
             }
+        }
+
+
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void pointsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void bulletPointsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Adds bullet points to selected text
+            richTextBox1.SelectionBullet = !richTextBox1.SelectionBullet;
+            if (richTextBox1.SelectionLength == 0)
+                return;
+
+            // Add space of like 10px to the bullet point from the margain
+            richTextBox1.SelectionIndent = 10;
+            richTextBox1.SelectionHangingIndent = 5;
+
         }
     }
 }

@@ -1,7 +1,7 @@
 SOFTWARE LICENSE AGREEMENT
 
 Product Name: She!n Essay  
-Version: 1.0.2
+Version: 1.0.3
 Developer: Ligma Techlologies  
 Repository: https://github.com/ligma-techlologies/SheinEssay
 
