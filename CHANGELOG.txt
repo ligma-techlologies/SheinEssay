@@ -1,3 +1,9 @@
+Update 1.0.4
+-----------------
+BetterMargin - Allows Modification of the margin of the text
+Application now maximised by default
+General quality of life improvements
+-------------------------------------------------------------
 Update 1.0.3
 -----------------
 Bullet Points Support added
