@@ -17,12 +17,16 @@ namespace She_nEssay
         {
             InitializeComponent();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new EventHandler(Form1_Resize);
+            this.Resize += Form1_Resize;
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Clears RichTextBox
             richTextBox1.Clear();
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +42,8 @@ namespace She_nEssay
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox1.Text = File.ReadAllText(openFileDialog.FileName);
+                richTextBox1.SelectionStart = 0;
+                richTextBox1.ScrollToCaret();
             }
         }
 
@@ -77,7 +83,7 @@ namespace She_nEssay
         private void aboutShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // About She!n Essay
-            MessageBox.Show("She!n Essay \n" + "Version 1.0.4 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("She!n Essay \n" + "Version 1.0.5-beta1 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void aboutShenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,7 +91,7 @@ namespace She_nEssay
             // About She!n <3
             MessageBox.Show("She!n is a productivity tool that is completely open-source and can be made to do and feel like how you want to by just coding. \n" + "Support the She!n project by starring our Github repo.\n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        
+
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -201,7 +207,7 @@ namespace She_nEssay
 
         private void marginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Welcome to BetterMargin Setup. \n" + "BetterMargin allows you to set the margin of the document to be what you feel like for a more personalized experience. \n" + " Please click OK to proceed with the Setup. If you wish to opt out, click Cancel","BetterMargin Wizard", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Welcome to BetterMargin Setup. \n" + "BetterMargin allows you to set the margin of the document to be what you feel like for a more personalized experience. \n" + " Please click OK to proceed with the Setup. If you wish to opt out, click Cancel", "BetterMargin Wizard", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             // If user presses OK, show margin setup dialog
             if (result == DialogResult.OK)
@@ -214,20 +220,70 @@ namespace She_nEssay
                     richTextBox1.SelectAll();
                     richTextBox1.SelectionIndent = marginPx;
 
-                    MessageBox.Show($"Margin set to {marginPx}px. \n" + "The BetterMargin setup is finished","BetterMargin Wizard",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"Margin set to {marginPx}px. \n" + "The BetterMargin setup is finished", "BetterMargin Wizard", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     // Be vague as possible. Big tech companies love this, so why can't we? Except for the fact we don't log your data to an FTP server in Krygyzstan or wherever.
-                    MessageBox.Show("Oh No! an error has occured. It could be because you cancelled out of the setup or you entered in an invalid input. Please try again.", "BetterMargin Wizard",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Oh No! an error has occured. It could be because you cancelled out of the setup or you entered in an invalid input. Please try again.", "BetterMargin Wizard", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        
+
             // Cancel
             if (result == DialogResult.Cancel)
             {
                 MessageBox.Show("You have cancelled the BetterMargin Setup. If you cancelled out by mistake, please try again.", "BetterMargain Wizard", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pageSizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void a4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Dock = DockStyle.None;
+            richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            richTextBox1.Width = 595;
+            richTextBox1.Height = 842;
+            CenterRichTextBox();
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
+            MessageBox.Show("Page size set to A4", "Page Size", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void a3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Dock = DockStyle.None;
+            richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            richTextBox1.Width = 842;
+            richTextBox1.Height = 1191;
+            CenterRichTextBox();
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
+            MessageBox.Show("Page size set to A3", "Page Size", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void basicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Dock = DockStyle.Fill;
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
+            MessageBox.Show("Page size set to default", "Page Size", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void CenterRichTextBox()
+        {
+            int x = (this.ClientSize.Width - richTextBox1.Width) / 2;
+            int y = (this.ClientSize.Height - richTextBox1.Height) / 2;
+            richTextBox1.Location = new Point(x, y);
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
         }
     }
 }

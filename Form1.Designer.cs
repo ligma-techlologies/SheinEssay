@@ -54,6 +54,10 @@ namespace She_nEssay
             formatToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             richTextBox1 = new RichTextBox();
+            pageSizeToolStripMenuItem = new ToolStripMenuItem();
+            a4ToolStripMenuItem = new ToolStripMenuItem();
+            a3ToolStripMenuItem = new ToolStripMenuItem();
+            basicToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -185,7 +189,7 @@ namespace She_nEssay
             // 
             // documentToolStripMenuItem
             // 
-            documentToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { marginToolStripMenuItem });
+            documentToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { marginToolStripMenuItem, pageSizeToolStripMenuItem });
             documentToolStripMenuItem.Name = "documentToolStripMenuItem";
             documentToolStripMenuItem.Size = new Size(73, 21);
             documentToolStripMenuItem.Text = "Document";
@@ -227,7 +231,7 @@ namespace She_nEssay
             // 
             // richTextBox1
             // 
-            richTextBox1.Dock = DockStyle.Fill;
+            richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             richTextBox1.Font = new Font("Segoe UI", 14F);
             richTextBox1.Location = new Point(0, 25);
             richTextBox1.Name = "richTextBox1";
@@ -236,6 +240,35 @@ namespace She_nEssay
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
+            // 
+            // pageSizeToolStripMenuItem
+            // 
+            pageSizeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { a4ToolStripMenuItem, a3ToolStripMenuItem, basicToolStripMenuItem });
+            pageSizeToolStripMenuItem.Name = "pageSizeToolStripMenuItem";
+            pageSizeToolStripMenuItem.Size = new Size(180, 22);
+            pageSizeToolStripMenuItem.Text = "Page Size";
+            pageSizeToolStripMenuItem.Click += pageSizeToolStripMenuItem_Click;
+            // 
+            // a4ToolStripMenuItem
+            // 
+            a4ToolStripMenuItem.Name = "a4ToolStripMenuItem";
+            a4ToolStripMenuItem.Size = new Size(180, 22);
+            a4ToolStripMenuItem.Text = "A4";
+            a4ToolStripMenuItem.Click += a4ToolStripMenuItem_Click;
+            // 
+            // a3ToolStripMenuItem
+            // 
+            a3ToolStripMenuItem.Name = "a3ToolStripMenuItem";
+            a3ToolStripMenuItem.Size = new Size(180, 22);
+            a3ToolStripMenuItem.Text = "A3";
+            a3ToolStripMenuItem.Click += a3ToolStripMenuItem_Click;
+            // 
+            // basicToolStripMenuItem
+            // 
+            basicToolStripMenuItem.Name = "basicToolStripMenuItem";
+            basicToolStripMenuItem.Size = new Size(180, 22);
+            basicToolStripMenuItem.Text = "Basic";
+            basicToolStripMenuItem.Click += basicToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -247,6 +280,8 @@ namespace She_nEssay
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "- She!n Essay";
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -280,5 +315,9 @@ namespace She_nEssay
         private ToolStripMenuItem bulletPointsToolStripMenuItem;
         private ToolStripMenuItem documentToolStripMenuItem;
         private ToolStripMenuItem marginToolStripMenuItem;
+        private ToolStripMenuItem pageSizeToolStripMenuItem;
+        private ToolStripMenuItem a4ToolStripMenuItem;
+        private ToolStripMenuItem a3ToolStripMenuItem;
+        private ToolStripMenuItem basicToolStripMenuItem;
     }
 }
