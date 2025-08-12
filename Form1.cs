@@ -83,7 +83,7 @@ namespace She_nEssay
         private void aboutShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // About She!n Essay
-            MessageBox.Show("She!n Essay \n" + "Version 1.0.5-beta1 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("She!n Essay \n" + "Version 1.0.5 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void aboutShenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -190,13 +190,31 @@ namespace She_nEssay
         private void bulletPointsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Adds bullet points to selected text
+            // Make sure the bullet point is always has that margin directly
             richTextBox1.SelectionBullet = !richTextBox1.SelectionBullet;
-            if (richTextBox1.SelectionLength == 0)
-                return;
+            KeyPress += (s, e) =>
+            {
+                // If the user presses Enter, add a new bullet point
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    richTextBox1.SelectionBullet = true;
+                    e.Handled = true;
+                }
+            };
 
             // Add space of like 10px to the bullet point from the margain
             richTextBox1.SelectionIndent = 10;
             richTextBox1.SelectionHangingIndent = 5;
+
+            // Make sure the bullet points stay until deleted by user
+            richTextBox1.KeyPress += (s, e) =>
+            {
+                if (e.KeyChar == (char)Keys.Enter && richTextBox1.SelectionBullet)
+                {
+                    richTextBox1.SelectionBullet = true;
+                    e.Handled = true;
+                }
+            };
 
         }
 
@@ -238,12 +256,12 @@ namespace She_nEssay
 
         private void pageSizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Leave it blank. For now...
+            MessageBox.Show("This feature is currently experimental and is somewhat broken. Will fix in future update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void a4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Dock = DockStyle.None;
+            richTextBox1.Dock = DockStyle.Left;
             richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             richTextBox1.Width = 595;
             richTextBox1.Height = 842;
@@ -255,7 +273,7 @@ namespace She_nEssay
 
         private void a3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Dock = DockStyle.None;
+            richTextBox1.Dock = DockStyle.Left;
             richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             richTextBox1.Width = 842;
             richTextBox1.Height = 1191;
@@ -284,6 +302,21 @@ namespace She_nEssay
         {
             richTextBox1.SelectionStart = 0;
             richTextBox1.ScrollToCaret();
+        }
+
+        private void textTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void headingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 30, FontStyle.Underline, GraphicsUnit.Point);
+        }
+
+        private void subheadingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 20, FontStyle.Underline, GraphicsUnit.Point);
         }
     }
 }

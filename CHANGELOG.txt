@@ -1,3 +1,9 @@
+Update 1.0.5
+------------------
+Added support for A4 and A3 file formats
+Heading and Subheading support added
+Improvements to Bullet Points
+--------------------------------------------------------------
 Update 1.0.5-beta1
 -----------------
 Added support for A4 and A3 file formats
