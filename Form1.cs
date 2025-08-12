@@ -1,4 +1,4 @@
-// Hi! This is the backbone of She!n Essay. 
+// Hi! This is the backbone of She!n Essay.
 using Microsoft.VisualBasic;
 using System.Drawing.Text;
 using System.Windows.Forms;
