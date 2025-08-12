@@ -1,4 +1,4 @@
-// Hi! This is the backbone of She!n Essay. 
+// Hi! This is the backbone of She!n Essay.
 using Microsoft.VisualBasic;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -312,11 +312,29 @@ namespace She_nEssay
         private void headingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 30, FontStyle.Underline, GraphicsUnit.Point);
+            // Resets text to normal after heading
+            richTextBox1.KeyPress += (s, e) =>
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 14, FontStyle.Regular, GraphicsUnit.Point);
+
+                }
+            };
         }
 
         private void subheadingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 20, FontStyle.Underline, GraphicsUnit.Point);
+           richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 20, FontStyle.Underline, GraphicsUnit.Point);
+            // Resets text to normal after subheading
+            richTextBox1.KeyPress += (s, e) =>
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 14, FontStyle.Regular, GraphicsUnit.Point);
+
+                }
+            };
         }
     }
 }
