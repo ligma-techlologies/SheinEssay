@@ -1,4 +1,4 @@
-Update 1.0.5
+Update 1.0.5 
 ------------------
 Added support for A4 and A3 file formats
 Heading and Subheading support added
