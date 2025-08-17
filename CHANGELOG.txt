@@ -1,3 +1,10 @@
+Update 1.0.6-beta1
+------------------
+Added Help Menu
+Added Templates - Resume, Job Application
+Ability to Save As
+More... (seriously, this is going to be a big update)
+--------------------------------------------------------------
 Update 1.0.5.1
 ------------------
 Fixed formatting for Heading and Subheading

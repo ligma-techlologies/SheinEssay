@@ -5,20 +5,70 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms.VisualStyles;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using SpeechLib;
 
 namespace She_nEssay
 {
     public partial class Form1 : Form
     {
-
         private FontDialog fontDialog1 = new FontDialog();
         private ColorDialog colorDialog1 = new ColorDialog();
+        private TextBox updateTextBox = new TextBox();
+
         public Form1()
         {
             InitializeComponent();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Resize += new EventHandler(Form1_Resize);
             this.Resize += Form1_Resize;
+
+            // Check for updates on load
+            CheckForUpdateAsync("tag_name");
+        }
+
+        // Update Prompt thing...
+        private async void CheckForUpdateAsync(string versionTagName)
+        {
+            string currentVersion = "1.0.6";
+            string apiUrl = "https://api.github.com/repos/ligma-techlologies/SheinEssay/releases/latest";
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("She!n Essay GitHub Request Tool");
+
+                try
+                {
+                    var response = await client.GetStringAsync(apiUrl);
+                    using (JsonDocument doc = JsonDocument.Parse(response))
+                    {
+                        if (doc.RootElement.TryGetProperty(versionTagName, out JsonElement versionElement) && versionElement.ValueKind == JsonValueKind.String)
+                        {
+                            string? latestVersion = versionElement.GetString();
+
+                            if (latestVersion != null && Version.TryParse(currentVersion, out var current) && Version.TryParse(latestVersion, out var latest))
+                            {
+                                if (current < latest)
+                                {
+                                    MessageBox.Show($"Oh No! You are running ({currentVersion}) which is outdated!\nA new version ({latestVersion}) is available!\nPlease update at: https://github.com/ligma-techlologies/SheinEssay/releases", "Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    updateTextBox.Visible = false;
+                                }
+                            }
+                            // No message shown if version parsing fails
+                        }
+                    }
+                }
+                catch
+                {
+                    // If there is no network, optionally show a message or keep hidden
+                    updateTextBox.Visible = false;
+                }
+            }
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -52,7 +102,7 @@ namespace She_nEssay
             // Save file prompt
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
-                Filter = "She!n Essay Files (*.she!ss)|*.she!ss|All Files (*.*)|*.*",
+                Filter = "She!n Essay Files (*.she!ss)|*.she!ss",
                 Title = "Save She!n Essay File"
             };
 
@@ -65,8 +115,16 @@ namespace She_nEssay
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Got to work...
-            MessageBox.Show("Sorry! This feature is not implemented yet. Check back later", "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            SaveFileDialog saveasFileDialog = new SaveFileDialog
+            {
+                Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+                Title = "Save as File"
+            };
+
+            if (saveasFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(saveasFileDialog.FileName, richTextBox1.Text);
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,7 +141,7 @@ namespace She_nEssay
         private void aboutShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // About She!n Essay
-            MessageBox.Show("She!n Essay \n" + "Version 1.0.5 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("She!n Essay \n" + "Version 1.0.6 \n" + "Developed by Ligma Techlologies \n" + "Copyright © Ligma Techlologies 2025. All rights reserved \n" + "NOT AFFILIATED WITH SHEIN CLOTHING BRAND FOR GODS SAKE", "About She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void aboutShenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -256,11 +314,12 @@ namespace She_nEssay
 
         private void pageSizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is currently experimental and is somewhat broken. Will fix in future update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            // HAHA! FIXED!
         }
 
         private void a4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             richTextBox1.Dock = DockStyle.Left;
             richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             richTextBox1.Width = 595;
@@ -273,6 +332,7 @@ namespace She_nEssay
 
         private void a3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             richTextBox1.Dock = DockStyle.Left;
             richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             richTextBox1.Width = 842;
@@ -325,7 +385,7 @@ namespace She_nEssay
 
         private void subheadingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 20, FontStyle.Underline, GraphicsUnit.Point);
+            richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, 20, FontStyle.Underline, GraphicsUnit.Point);
             // Resets text to normal after subheading
             richTextBox1.KeyPress += (s, e) =>
             {
@@ -336,5 +396,274 @@ namespace She_nEssay
                 }
             };
         }
+
+        private void updatingShenEssayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("To update She!n Essay: \n" + "Uninstall She!n Essay by running the uninstaller at: \n" + "C: ---> Program Files (x86) ---> Ligma Techlologies ---> She!n Essay ---> Uninstall She!n Essay \n" + "Go to: https://github.com/ligma-techlologies/SheinEssay/releases/latest \n" + "Download the latest version \n" + "Run the installer \n" + "Click on the desktop shortcut \n" + "You are done!", "Updating She!n Essay", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void templatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+
+        private void resumeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Opens the resume application .she!ss file template
+            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Templates", "Resume.she!ss");
+            if (File.Exists(templatePath))
+            {
+                richTextBox1.Text = File.ReadAllText(templatePath);
+                richTextBox1.SelectionStart = 0;
+                richTextBox1.ScrollToCaret();
+                MessageBox.Show("Resume template loaded.", "Template", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Resume template not found.\nPlease make sure 'Resume.she!ss' exists in the 'Templates' folder.", "Template Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void jobApplicationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Opens the Job application .she!ss file template
+            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Templates", "JobApplication.she!ss");
+            if (File.Exists(templatePath))
+            {
+                richTextBox1.Text = File.ReadAllText(templatePath);
+                richTextBox1.SelectionStart = 0;
+                richTextBox1.ScrollToCaret();
+                MessageBox.Show("Job application template loaded.", "Template", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Job application template not found.\nPlease make sure 'JobApplication.she!ss' exists in the 'Templates' folder.", "Template Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void assistanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Leave it blank. For now...
+        }
+
+        private void thesaurusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Changes size to A4
+            richTextBox1.Dock = DockStyle.Left;
+            richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            richTextBox1.Width = 595;
+            richTextBox1.Height = 842;
+            CenterRichTextBox();
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
+
+            // Makes a web browser control to open Thesaurus.html
+            string thesaurusPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files", "Thesaurus.html");
+            if (File.Exists(thesaurusPath))
+            {
+                // Remove any previous web browser controls and close buttons
+                Control browserToRemove = null;
+                Control buttonToRemove = null;
+                foreach (Control ctrl in this.Controls)
+                {
+                    if (ctrl is WebBrowser)
+                        browserToRemove = ctrl;
+                    if (ctrl is Button && ctrl.Tag?.ToString() == "CloseWebBrowser")
+                        buttonToRemove = ctrl;
+                }
+                if (browserToRemove != null)
+                {
+                    this.Controls.Remove(browserToRemove);
+                    browserToRemove.Dispose();
+                }
+                if (buttonToRemove != null)
+                {
+                    this.Controls.Remove(buttonToRemove);
+                    buttonToRemove.Dispose();
+                }
+
+                WebBrowser webBrowser = new WebBrowser
+                {
+                    Dock = DockStyle.Fill,
+                    Url = new Uri(thesaurusPath)
+                };
+                this.Controls.Add(webBrowser);
+                webBrowser.BringToFront();
+
+                // Adds an X which closes the browser
+                Button closeButton = new Button
+                {
+                    Text = "X",
+                    Tag = "CloseWebBrowser",
+                    Size = new Size(30, 30),
+                    Location = new Point(this.ClientSize.Width - 40, 10),
+                    Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                    BackColor = Color.Red,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat
+                };
+
+                // If X is clicked
+                closeButton.Click += (s, args) =>
+                {
+                    this.Controls.Remove(webBrowser);
+                    webBrowser.Dispose();
+                    this.Controls.Remove(closeButton);
+                    closeButton.Dispose();
+
+                    richTextBox1.Dock = DockStyle.Fill;
+                };
+                this.Controls.Add(closeButton);
+                closeButton.BringToFront();
+            }
+            else
+            {
+                MessageBox.Show("Thesaurus.html not found in the 'Files' folder.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Changes size to A4
+            richTextBox1.Dock = DockStyle.Left;
+            richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            richTextBox1.Width = 595;
+            richTextBox1.Height = 842;
+            CenterRichTextBox();
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
+
+            // Makes a web browser control to open Help.html
+            string helpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files", "Help.html");
+            if (File.Exists(helpPath))
+            {
+                // Remove any previous web browser controls and close buttons
+                Control browserToRemove = null;
+                Control buttonToRemove = null;
+                foreach (Control ctrl in this.Controls)
+                {
+                    if (ctrl is WebBrowser)
+                        browserToRemove = ctrl;
+                    if (ctrl is Button && ctrl.Tag?.ToString() == "CloseWebBrowser")
+                        buttonToRemove = ctrl;
+                }
+                if (browserToRemove != null)
+                {
+                    this.Controls.Remove(browserToRemove);
+                    browserToRemove.Dispose();
+                }
+                if (buttonToRemove != null)
+                {
+                    this.Controls.Remove(buttonToRemove);
+                    buttonToRemove.Dispose();
+                }
+
+                WebBrowser webBrowser = new WebBrowser
+                {
+                    Dock = DockStyle.Fill,
+                    Url = new Uri(helpPath)
+                };
+                this.Controls.Add(webBrowser);
+                webBrowser.BringToFront();
+
+                // Adds an X which closes the browser
+                Button closeButton = new Button
+                {
+                    Text = "X",
+                    Tag = "CloseWebBrowser",
+                    Size = new Size(30, 30),
+                    Location = new Point(this.ClientSize.Width - 40, 10),
+                    Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                    BackColor = Color.Red,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat
+                };
+
+                // If X is clicked
+                closeButton.Click += (s, args) =>
+                {
+                    this.Controls.Remove(webBrowser);
+                    webBrowser.Dispose();
+                    this.Controls.Remove(closeButton);
+                    closeButton.Dispose();
+
+                    richTextBox1.Dock = DockStyle.Fill;
+                };
+                this.Controls.Add(closeButton);
+                closeButton.BringToFront();
+            }
+
+            // The help menu stuff
+            else
+            {
+                MessageBox.Show("Help.html not found in the 'Files' folder.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void assistanceToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Got to work...
+            MessageBox.Show("STT (Speech To Text) will be added in a future update. Please hold", "Future Content", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void customToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Welcome to BetterSize Wizard. \n" + "BetterSize allows you to set the custom width and height of the Document Area. \n" + "Press Enter to continue", "BetterSize Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            string widthInput = Interaction.InputBox("Enter width (in pixels):", "BetterSize Wizard");
+            if (int.TryParse(widthInput, out int widthPx))
+            {
+                richTextBox1.SelectAll();
+                richTextBox1.SelectionIndent = widthPx;
+                richTextBox1.Width = widthPx;
+                richTextBox1.Dock = DockStyle.Left;
+                richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+                MessageBox.Show($"Width set to {widthPx}px.", "BetterMargin Wizard", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+            else
+            {
+                MessageBox.Show("Oh No! an error has occured. It could be because you cancelled out of the setup or you entered in an invalid input. Please try again.", "BetterSize Wizard", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string heightInput = Interaction.InputBox("Enter height (in pixels):", "BetterSize Wizard");
+            if (int.TryParse(heightInput, out int heightPx))
+            {
+                richTextBox1.SelectAll();
+                richTextBox1.SelectionIndent = heightPx;
+                richTextBox1.Height = heightPx;
+
+                MessageBox.Show($"Height set to {heightPx}px.", "BetterSize Wizard", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                MessageBox.Show("Oh No! an error has occured. It could be because you cancelled out of the setup or you entered in an invalid input. Please try again.", "BetterSize Wizard", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            CenterRichTextBox();
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.ScrollToCaret();
+        }
+
+        private void resetMarginsToDefaultToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionIndent = 0;
+            richTextBox1.ScrollToCaret();
+            MessageBox.Show("Margins reset to default.", "Reset Margins", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void languageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Got to work...
+            MessageBox.Show("Language selection will be added in a future update. Please hold", "Future Content", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
+

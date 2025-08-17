@@ -44,6 +44,9 @@ namespace She_nEssay
             fontToolStripMenuItem = new ToolStripMenuItem();
             fontTypeToolStripMenuItem = new ToolStripMenuItem();
             colorPalleteToolStripMenuItem = new ToolStripMenuItem();
+            textTypesToolStripMenuItem = new ToolStripMenuItem();
+            headingToolStripMenuItem = new ToolStripMenuItem();
+            subheadingToolStripMenuItem = new ToolStripMenuItem();
             pointsToolStripMenuItem = new ToolStripMenuItem();
             bulletPointsToolStripMenuItem = new ToolStripMenuItem();
             documentToolStripMenuItem = new ToolStripMenuItem();
@@ -52,21 +55,30 @@ namespace She_nEssay
             a4ToolStripMenuItem = new ToolStripMenuItem();
             a3ToolStripMenuItem = new ToolStripMenuItem();
             basicToolStripMenuItem = new ToolStripMenuItem();
+            customToolStripMenuItem = new ToolStripMenuItem();
+            templatesToolStripMenuItem = new ToolStripMenuItem();
+            resumeToolStripMenuItem1 = new ToolStripMenuItem();
+            jobApplicationToolStripMenuItem1 = new ToolStripMenuItem();
+            assistanceToolStripMenuItem = new ToolStripMenuItem();
+            thesaurusToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            assistanceToolStripMenuItem1 = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             aboutShenEssayToolStripMenuItem = new ToolStripMenuItem();
             aboutShenToolStripMenuItem = new ToolStripMenuItem();
+            updatingShenEssayToolStripMenuItem = new ToolStripMenuItem();
             formatToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             richTextBox1 = new RichTextBox();
-            textTypesToolStripMenuItem = new ToolStripMenuItem();
-            headingToolStripMenuItem = new ToolStripMenuItem();
-            subheadingToolStripMenuItem = new ToolStripMenuItem();
+            jobApplicationToolStripMenuItem = new ToolStripMenuItem();
+            languageToolStripMenuItem = new ToolStripMenuItem();
+            resetMarginsToDefaultToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, formatToolStripMenuItem1, documentToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, formatToolStripMenuItem1, documentToolStripMenuItem, templatesToolStripMenuItem, assistanceToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 25);
@@ -128,28 +140,28 @@ namespace She_nEssay
             // 
             textToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boldToolStripMenuItem, italicsToolStripMenuItem, underlineToolStripMenuItem, fontToolStripMenuItem, textTypesToolStripMenuItem });
             textToolStripMenuItem.Name = "textToolStripMenuItem";
-            textToolStripMenuItem.Size = new Size(180, 22);
+            textToolStripMenuItem.Size = new Size(110, 22);
             textToolStripMenuItem.Text = "Text";
             textToolStripMenuItem.Click += textToolStripMenuItem_Click;
             // 
             // boldToolStripMenuItem
             // 
             boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            boldToolStripMenuItem.Size = new Size(180, 22);
+            boldToolStripMenuItem.Size = new Size(139, 22);
             boldToolStripMenuItem.Text = "Bold";
             boldToolStripMenuItem.Click += boldToolStripMenuItem_Click;
             // 
             // italicsToolStripMenuItem
             // 
             italicsToolStripMenuItem.Name = "italicsToolStripMenuItem";
-            italicsToolStripMenuItem.Size = new Size(180, 22);
+            italicsToolStripMenuItem.Size = new Size(139, 22);
             italicsToolStripMenuItem.Text = "Italics";
             italicsToolStripMenuItem.Click += italicsToolStripMenuItem_Click;
             // 
             // underlineToolStripMenuItem
             // 
             underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
-            underlineToolStripMenuItem.Size = new Size(180, 22);
+            underlineToolStripMenuItem.Size = new Size(139, 22);
             underlineToolStripMenuItem.Text = "Underline";
             underlineToolStripMenuItem.Click += underlineToolStripMenuItem_Click;
             // 
@@ -157,7 +169,7 @@ namespace She_nEssay
             // 
             fontToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontTypeToolStripMenuItem, colorPalleteToolStripMenuItem });
             fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            fontToolStripMenuItem.Size = new Size(180, 22);
+            fontToolStripMenuItem.Size = new Size(139, 22);
             fontToolStripMenuItem.Text = "Font";
             fontToolStripMenuItem.Click += fontToolStripMenuItem_Click;
             // 
@@ -175,24 +187,46 @@ namespace She_nEssay
             colorPalleteToolStripMenuItem.Text = "Color Pallete";
             colorPalleteToolStripMenuItem.Click += colorPalleteToolStripMenuItem_Click;
             // 
+            // textTypesToolStripMenuItem
+            // 
+            textTypesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { headingToolStripMenuItem, subheadingToolStripMenuItem });
+            textTypesToolStripMenuItem.Name = "textTypesToolStripMenuItem";
+            textTypesToolStripMenuItem.Size = new Size(139, 22);
+            textTypesToolStripMenuItem.Text = "Text Types";
+            textTypesToolStripMenuItem.Click += textTypesToolStripMenuItem_Click;
+            // 
+            // headingToolStripMenuItem
+            // 
+            headingToolStripMenuItem.Name = "headingToolStripMenuItem";
+            headingToolStripMenuItem.Size = new Size(136, 22);
+            headingToolStripMenuItem.Text = "Heading";
+            headingToolStripMenuItem.Click += headingToolStripMenuItem_Click;
+            // 
+            // subheadingToolStripMenuItem
+            // 
+            subheadingToolStripMenuItem.Name = "subheadingToolStripMenuItem";
+            subheadingToolStripMenuItem.Size = new Size(136, 22);
+            subheadingToolStripMenuItem.Text = "Subheading";
+            subheadingToolStripMenuItem.Click += subheadingToolStripMenuItem_Click;
+            // 
             // pointsToolStripMenuItem
             // 
             pointsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bulletPointsToolStripMenuItem });
             pointsToolStripMenuItem.Name = "pointsToolStripMenuItem";
-            pointsToolStripMenuItem.Size = new Size(180, 22);
+            pointsToolStripMenuItem.Size = new Size(110, 22);
             pointsToolStripMenuItem.Text = "Points";
             pointsToolStripMenuItem.Click += pointsToolStripMenuItem_Click;
             // 
             // bulletPointsToolStripMenuItem
             // 
             bulletPointsToolStripMenuItem.Name = "bulletPointsToolStripMenuItem";
-            bulletPointsToolStripMenuItem.Size = new Size(180, 22);
+            bulletPointsToolStripMenuItem.Size = new Size(148, 22);
             bulletPointsToolStripMenuItem.Text = "Bullet Points";
             bulletPointsToolStripMenuItem.Click += bulletPointsToolStripMenuItem_Click;
             // 
             // documentToolStripMenuItem
             // 
-            documentToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { marginToolStripMenuItem, pageSizeToolStripMenuItem });
+            documentToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { marginToolStripMenuItem, pageSizeToolStripMenuItem, resetMarginsToDefaultToolStripMenuItem1, languageToolStripMenuItem });
             documentToolStripMenuItem.Name = "documentToolStripMenuItem";
             documentToolStripMenuItem.Size = new Size(73, 21);
             documentToolStripMenuItem.Text = "Document";
@@ -201,15 +235,15 @@ namespace She_nEssay
             // marginToolStripMenuItem
             // 
             marginToolStripMenuItem.Name = "marginToolStripMenuItem";
-            marginToolStripMenuItem.Size = new Size(180, 22);
+            marginToolStripMenuItem.Size = new Size(220, 22);
             marginToolStripMenuItem.Text = "Margin";
             marginToolStripMenuItem.Click += marginToolStripMenuItem_Click;
             // 
             // pageSizeToolStripMenuItem
             // 
-            pageSizeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { a4ToolStripMenuItem, a3ToolStripMenuItem, basicToolStripMenuItem });
+            pageSizeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { a4ToolStripMenuItem, a3ToolStripMenuItem, basicToolStripMenuItem, customToolStripMenuItem });
             pageSizeToolStripMenuItem.Name = "pageSizeToolStripMenuItem";
-            pageSizeToolStripMenuItem.Size = new Size(180, 22);
+            pageSizeToolStripMenuItem.Size = new Size(220, 22);
             pageSizeToolStripMenuItem.Text = "Page Size";
             pageSizeToolStripMenuItem.Click += pageSizeToolStripMenuItem_Click;
             // 
@@ -234,9 +268,67 @@ namespace She_nEssay
             basicToolStripMenuItem.Text = "Basic";
             basicToolStripMenuItem.Click += basicToolStripMenuItem_Click;
             // 
+            // customToolStripMenuItem
+            // 
+            customToolStripMenuItem.Name = "customToolStripMenuItem";
+            customToolStripMenuItem.Size = new Size(180, 22);
+            customToolStripMenuItem.Text = "Custom";
+            customToolStripMenuItem.Click += customToolStripMenuItem_Click;
+            // 
+            // templatesToolStripMenuItem
+            // 
+            templatesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { resumeToolStripMenuItem1, jobApplicationToolStripMenuItem1 });
+            templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
+            templatesToolStripMenuItem.Size = new Size(76, 21);
+            templatesToolStripMenuItem.Text = "Templates";
+            templatesToolStripMenuItem.Click += templatesToolStripMenuItem_Click;
+            // 
+            // resumeToolStripMenuItem1
+            // 
+            resumeToolStripMenuItem1.Name = "resumeToolStripMenuItem1";
+            resumeToolStripMenuItem1.Size = new Size(162, 22);
+            resumeToolStripMenuItem1.Text = "Resume";
+            resumeToolStripMenuItem1.Click += resumeToolStripMenuItem1_Click;
+            // 
+            // jobApplicationToolStripMenuItem1
+            // 
+            jobApplicationToolStripMenuItem1.Name = "jobApplicationToolStripMenuItem1";
+            jobApplicationToolStripMenuItem1.Size = new Size(162, 22);
+            jobApplicationToolStripMenuItem1.Text = "Job Application";
+            jobApplicationToolStripMenuItem1.Click += jobApplicationToolStripMenuItem1_Click;
+            // 
+            // assistanceToolStripMenuItem
+            // 
+            assistanceToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { thesaurusToolStripMenuItem, helpToolStripMenuItem, assistanceToolStripMenuItem1 });
+            assistanceToolStripMenuItem.Name = "assistanceToolStripMenuItem";
+            assistanceToolStripMenuItem.Size = new Size(80, 21);
+            assistanceToolStripMenuItem.Text = "Assistance";
+            assistanceToolStripMenuItem.Click += assistanceToolStripMenuItem_Click;
+            // 
+            // thesaurusToolStripMenuItem
+            // 
+            thesaurusToolStripMenuItem.Name = "thesaurusToolStripMenuItem";
+            thesaurusToolStripMenuItem.Size = new Size(132, 22);
+            thesaurusToolStripMenuItem.Text = "Thesaurus";
+            thesaurusToolStripMenuItem.Click += thesaurusToolStripMenuItem_Click;
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(132, 22);
+            helpToolStripMenuItem.Text = "Help";
+            helpToolStripMenuItem.Click += helpToolStripMenuItem_Click;
+            // 
+            // assistanceToolStripMenuItem1
+            // 
+            assistanceToolStripMenuItem1.Name = "assistanceToolStripMenuItem1";
+            assistanceToolStripMenuItem1.Size = new Size(132, 22);
+            assistanceToolStripMenuItem1.Text = "STT";
+            assistanceToolStripMenuItem1.Click += assistanceToolStripMenuItem1_Click;
+            // 
             // aboutToolStripMenuItem
             // 
-            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutShenEssayToolStripMenuItem, aboutShenToolStripMenuItem });
+            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutShenEssayToolStripMenuItem, aboutShenToolStripMenuItem, updatingShenEssayToolStripMenuItem });
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             aboutToolStripMenuItem.Size = new Size(52, 21);
             aboutToolStripMenuItem.Text = "About";
@@ -245,16 +337,23 @@ namespace She_nEssay
             // aboutShenEssayToolStripMenuItem
             // 
             aboutShenEssayToolStripMenuItem.Name = "aboutShenEssayToolStripMenuItem";
-            aboutShenEssayToolStripMenuItem.Size = new Size(177, 22);
+            aboutShenEssayToolStripMenuItem.Size = new Size(194, 22);
             aboutShenEssayToolStripMenuItem.Text = "About She!n Essay";
             aboutShenEssayToolStripMenuItem.Click += aboutShenEssayToolStripMenuItem_Click;
             // 
             // aboutShenToolStripMenuItem
             // 
             aboutShenToolStripMenuItem.Name = "aboutShenToolStripMenuItem";
-            aboutShenToolStripMenuItem.Size = new Size(177, 22);
+            aboutShenToolStripMenuItem.Size = new Size(194, 22);
             aboutShenToolStripMenuItem.Text = "About She!n";
             aboutShenToolStripMenuItem.Click += aboutShenToolStripMenuItem_Click;
+            // 
+            // updatingShenEssayToolStripMenuItem
+            // 
+            updatingShenEssayToolStripMenuItem.Name = "updatingShenEssayToolStripMenuItem";
+            updatingShenEssayToolStripMenuItem.Size = new Size(194, 22);
+            updatingShenEssayToolStripMenuItem.Text = "Updating She!n Essay";
+            updatingShenEssayToolStripMenuItem.Click += updatingShenEssayToolStripMenuItem_Click;
             // 
             // formatToolStripMenuItem
             // 
@@ -273,27 +372,24 @@ namespace She_nEssay
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
-            // textTypesToolStripMenuItem
+            // jobApplicationToolStripMenuItem
             // 
-            textTypesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { headingToolStripMenuItem, subheadingToolStripMenuItem });
-            textTypesToolStripMenuItem.Name = "textTypesToolStripMenuItem";
-            textTypesToolStripMenuItem.Size = new Size(180, 22);
-            textTypesToolStripMenuItem.Text = "Text Types";
-            textTypesToolStripMenuItem.Click += textTypesToolStripMenuItem_Click;
+            jobApplicationToolStripMenuItem.Name = "jobApplicationToolStripMenuItem";
+            jobApplicationToolStripMenuItem.Size = new Size(32, 19);
             // 
-            // headingToolStripMenuItem
+            // languageToolStripMenuItem
             // 
-            headingToolStripMenuItem.Name = "headingToolStripMenuItem";
-            headingToolStripMenuItem.Size = new Size(180, 22);
-            headingToolStripMenuItem.Text = "Heading";
-            headingToolStripMenuItem.Click += headingToolStripMenuItem_Click;
+            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            languageToolStripMenuItem.Size = new Size(220, 22);
+            languageToolStripMenuItem.Text = "Language";
+            languageToolStripMenuItem.Click += languageToolStripMenuItem_Click;
             // 
-            // subheadingToolStripMenuItem
+            // resetMarginsToDefaultToolStripMenuItem1
             // 
-            subheadingToolStripMenuItem.Name = "subheadingToolStripMenuItem";
-            subheadingToolStripMenuItem.Size = new Size(180, 22);
-            subheadingToolStripMenuItem.Text = "Subheading";
-            subheadingToolStripMenuItem.Click += subheadingToolStripMenuItem_Click;
+            resetMarginsToDefaultToolStripMenuItem1.Name = "resetMarginsToDefaultToolStripMenuItem1";
+            resetMarginsToDefaultToolStripMenuItem1.Size = new Size(220, 22);
+            resetMarginsToDefaultToolStripMenuItem1.Text = "Reset Margins To Default";
+            resetMarginsToDefaultToolStripMenuItem1.Click += resetMarginsToDefaultToolStripMenuItem1_Click;
             // 
             // Form1
             // 
@@ -345,5 +441,17 @@ namespace She_nEssay
         private ToolStripMenuItem textTypesToolStripMenuItem;
         private ToolStripMenuItem headingToolStripMenuItem;
         private ToolStripMenuItem subheadingToolStripMenuItem;
+        private ToolStripMenuItem updatingShenEssayToolStripMenuItem;
+        private ToolStripMenuItem templatesToolStripMenuItem;
+        private ToolStripMenuItem resumeToolStripMenuItem1;
+        private ToolStripMenuItem jobApplicationToolStripMenuItem;
+        private ToolStripMenuItem jobApplicationToolStripMenuItem1;
+        private ToolStripMenuItem assistanceToolStripMenuItem;
+        private ToolStripMenuItem thesaurusToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem assistanceToolStripMenuItem1;
+        private ToolStripMenuItem customToolStripMenuItem;
+        private ToolStripMenuItem resetMarginsToDefaultToolStripMenuItem1;
+        private ToolStripMenuItem languageToolStripMenuItem;
     }
 }
